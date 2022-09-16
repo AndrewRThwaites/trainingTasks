@@ -1,0 +1,5 @@
+// exercise 9
+// What happens if you try the following code? Why?
+
+//let myNumber: UInt = -17
+// uInt is unsigned int thus is not allowed to store minus values

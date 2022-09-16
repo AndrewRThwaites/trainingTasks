@@ -1,0 +1,4 @@
+
+let numOfCarWheels = 4
+// constant must be assign value at moment of creation because you modify there contents afterwoods
+

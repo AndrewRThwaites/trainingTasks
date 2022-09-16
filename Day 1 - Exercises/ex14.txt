@@ -1,0 +1,5 @@
+// exercise 14
+
+//Write to sentences in one line
+
+print("sentence one" + " sentence two")

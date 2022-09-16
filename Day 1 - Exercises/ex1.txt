@@ -1,0 +1,7 @@
+// exercise 1
+var themometer :Int  = 24
+print(themometer)
+
+themometer = 38
+print(themometer)
+

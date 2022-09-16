@@ -1,0 +1,20 @@
+// exercise 17 * 18
+
+/*
+Can a constant have an optional type? If you're not sure, try it and
+see what happens.
+Solution. Yes, a constant can have an optional type
+let value: Int? = nil print(value)
+let otherValue: Int? = 6 print(otherValue)
+*/
+
+/*
+Why doesn't this work? What needs to be added to value on the
+second line for this to work?
+let value: Int? = 17 let banana: Int = value
+*/
+
+let value: Int? = nil
+// because banana is an optional it needs to be unwrapped
+let banana: Int = value ?? 0
+print(banana)

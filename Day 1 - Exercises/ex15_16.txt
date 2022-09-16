@@ -1,0 +1,13 @@
+// exercise 15 & 16
+
+/*
+Assign a tuple with two values in it to a constant named player.
+The values could represent the number of a hockey player and 
+the name of the hockey player. For example, 
+Igor Larionov whose number used to be 8.
+*/
+
+let player = (name: "Igor Larionov", number: 8)
+let name = player.name
+let playerNum = player.number
+print("\(name) \(playerNum)")

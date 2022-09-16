@@ -1,0 +1,11 @@
+// exercise 19
+
+/*
+If value in the previous exercise had been nil, what would have
+happened if you force unwrapped value?
+let value: Int? = nil let banana: Int = value!
+*/
+// exception error - unexpectedly found nil while unwrapping an optional value
+
+let value: Int? = nil 
+let banana: Int = value ?? 0

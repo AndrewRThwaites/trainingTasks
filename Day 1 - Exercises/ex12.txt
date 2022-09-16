@@ -1,0 +1,9 @@
+// exercise 12
+
+/*
+ this is a multi line 
+ comment
+ /* Does this count as a nested comment? */
+ */
+ 
+ // this is a single line comment

@@ -1,0 +1,12 @@
+// Exercise 8
+
+let pi = 3 + 0.141592654
+print(type(of: pi))
+// result is double
+/* 
+  Would have to be real number as an integer can be represented as a real 
+  but a real cannot be represented as an integer
+  
+  The amount of decimal after the decimal point requires a type double 
+  to be of sufficent precision
+*/

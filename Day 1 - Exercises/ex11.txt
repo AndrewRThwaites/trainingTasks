@@ -1,0 +1,10 @@
+// exercise 11
+
+/*
+Why does the following code not work? What do you need to add to it to make it work, 
+if we absolutely want to store this value as an integer, 
+i.e. 3, but we don't want to change the type of the variables?
+*/
+
+// let pi = 3.141592654 let approximatePi: Int = pi
+// integer cannot hold a double or float

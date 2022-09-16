@@ -1,0 +1,5 @@
+// exercise 10
+//let bigNumber: Int16 = 32767 + 1
+//print(bigNumber)
+// results in overflow as the value is larger than the largest possible value premissable
+

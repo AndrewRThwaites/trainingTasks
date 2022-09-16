@@ -1,0 +1,5 @@
+// exercise 2
+let SECOND_IN_HOUR = 3600
+print(SECOND_IN_HOUR)
+//SECOND_IN_HOUR = 3601 
+// creates a constant , that cannot be changed
