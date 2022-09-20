@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Singleton</title>
+</head>
+<body>
+<h1>Singleton</h1>
+
+<section>
+<h3>What is a Singleton</h3>
+<p>
+A singleton is a class that allows only a single instance of itself to be 
+created and gives access to that created instance. It contains static variables 
+that can accommodate unique and private instances of itself. 
+It is used in scenarios when a user wants to restrict instantiation 
+of a class to only one object. This is helpful usually when a single object is 
+required to coordinate actions across a system.
+</p>
+</section>
+
+<section>
+<h3>Examples of Singleton in IOS</h3>
+<p>
+Examples of Singletons found include URLSession.shared, FileManager.default, UserDefaults.Standard
+and SKPaymentQueue.default()
+</p>
+</section>
+
+<section>
+<h3>Advantages of Singletons</h3>
+<p>
+The singleton pattern is a very useful pattern. There are times that you want to 
+make sure only one instance of a class is instantiated and that your application 
+only uses that instance. That's the primary and only goal of the singleton pattern.
+<br>
+The default payment queue of the StoreKit framework is a fine example.
+</p>
+</section>
+
+<section>
+<h3>Disadvantages of Singletons</h3>
+<p>
+The singleton design pattern has a side effect that of global access.
+<br>
+Many developers use the singleton pattern to have easy access to 
+the singleton object from anywhere in their project. The default payment 
+queue is accessible through the default() class method is an example of this. 
+<br>
+By using singletons, you almost always sacrifice transparency for convenience.
+Using singletons things maybe more tightly coupled.
+<br>
+An alternative to using singleton is dependency injection. 
+While a key advantage of the singleton pattern is convenience, 
+the most important advantage of dependency injection is transparency. 
+Transparency is good.
+<br>
+If an object requires a valid user object to do its job,
+ then that user object should be injected as a dependency. 
+<br>
+It's very difficult to write unit tests for code that uses singletons 
+because it is generally tightly coupled with the singleton instance, 
+which makes it hard to control the creation of singleton or mock it.
+</p>
+</section>
+</body>
+</html>

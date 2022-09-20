@@ -1,0 +1,119 @@
+import Foundation
+import UIKit
+
+/*
+extension String {
+    func toFloat() -> Float? {
+        return NumberFormatter().number(from: self)?.doubleValue
+    }
+}
+ */
+
+
+func CalcChange(values: [Float])-> Float
+{
+    if values[0] < values[1] {
+        print("Error")
+        return 0.00
+    }
+    
+    if values[0] == values[1] {
+        print("ZERO")
+        return 0.00
+    }
+    
+    return values[0] - values[1]
+}
+
+func ParseInput(str: String)-> [Int] {
+
+    var array = str.components(separatedBy: ";")
+    print(array)
+    var returnArr: [Int]
+    if (array.count < 2) {
+        return [0, 0]
+    }
+    
+    //var ppf :Float
+    var cpf =  Float(array[0]) ?? 0.00
+    var ppf =  Float(array[1]) ?? 0.00
+    
+    var pp :Int
+    var cp :Int
+    pp = Int(cpf * 10)
+    cp = Int(ppf * 10)
+    
+    return [cp, pp]
+}
+
+func howManyCoins(change: Int, denomination: Int)->Int
+{
+    if denomination > change {return 0}
+    return change % denomination
+}
+
+
+func GetDenominations(change: Int)->String
+{
+    var denomiation = [(Int, String)]()
+    denomiation.append((10000, "HUNDRED"))
+    denomiation.append((5000, "FIFTY"))
+    denomiation.append((2000, "TWENTY"))
+    denomiation.append((1000, "TEN"))
+    denomiation.append((500,  "FIVE"))
+    denomiation.append((200,  "TWO"))
+    denomiation.append((100,  "ONE"))
+    denomiation.append((50, "HALF DOLLAR"))
+    denomiation.append((25, "QUARTER"))
+    denomiation.append((10, "DIME"))
+    denomiation.append((5, "NICKEL"))
+    denomiation.append((1, "PENNY"))
+    
+    var order = [9, 1, 4, 7, 0, 10, 6, 11, 8, 3, 5, 2]
+    var DenominationCount = [0 ,0 ,0, 0,0,0, 0,0,0, 0,0,0]
+    var answer = ""
+    var count:Int
+    
+    for i in 0...11 {
+        
+        var element = denomiation[i]
+        var count = howManyCoins(change: change, denomination: element.0)
+        var change = change - (count * element.0)
+        
+        if (count > 0) {
+            
+            DenominationCount[i] = count
+        }
+        print("change \(change) count \(count) and denom \(element.0)")
+    }
+    
+    for i in order {
+        
+        var c = DenominationCount[i]
+        var element  = denomiation[i]
+        if (c > 0) {
+            answer = answer + element.1 + " " + String(c) + "," 
+        }
+    }
+    
+    print(DenominationCount)
+    return answer
+}
+
+
+let values = ParseInput(str:"18.35;17.00")
+print(values)
+var cash = CalcChange(values:values)
+print(cash)
+if (cash != 0.00) {
+    let answer = GetDenominations(change:cash)
+    print(answer)
+}
+
+
+
+
+
+
+
+
