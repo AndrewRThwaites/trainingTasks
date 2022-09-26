@@ -1,0 +1,43 @@
+import Foundation
+
+func closureFunc1() {
+    
+    var val = 100
+    
+    let closure = {
+        print("\(val)")
+    }
+    
+    closure()
+    
+    val = 200
+    
+    closure()
+}
+
+closureFunc1()
+
+class Person {
+    var name = "person-1"
+}
+
+
+func closureFunc2() {
+    
+    var val2 = 100
+    let p = Person()
+    
+    let closure2 = {[val2, p] in 
+        print("\(val2). \(p.name)")
+    }
+    
+    closure2()
+    
+    val2 = 200
+    p = Person()
+    p.name = "person-2"
+    
+    closure2()
+}
+
+closureFunc2()

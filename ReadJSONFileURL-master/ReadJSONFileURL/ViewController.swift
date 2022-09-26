@@ -10,11 +10,13 @@ import UIKit
 /* "createdAt":"2022-01-24T20:52:50.765Z","isOccupied":false,"maxOccupancy":53539,"id":"1"},{"createdAt":"2022-01-25T14:37:26.128Z","isOccupied":false,"maxOccupancy":34072,"id":"2"
  */
 
+let ROOM_URL = "https://61e947967bc0550017bc61bf.mockapi.io/api/v1/rooms"
+
 struct DemoData: Codable {
-    let createdAt: String
-    let isOccupied: String
-    let maxOccupancy:Int
-    let id:Int
+    let createdAt: String?
+    let isOccupied: String?
+    let maxOccupancy:Int?
+    let id:Int?
 }
 
 class ViewController: UIViewController {
@@ -22,11 +24,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        if let localData = self.readLocalFile(forName: "data") {
-            self.parse(jsonData: localData)
-        }
+        //if let localData = self.readLocalFile(forName: "data") {
+        //    self.parse(jsonData: localData)
+        //}
         
-        let urlString = "https://61e947967bc0550017bc61bf.mockapi.io/api/v1/rooms"
+        let urlString = ROOM_URL
         self.loadJson(fromURLString: urlString) { (result) in
             switch result {
             case .success(let data):
@@ -55,7 +57,7 @@ class ViewController: UIViewController {
     
     private func loadJson(fromURLString urlString: String,
                           completion: @escaping (Result<Data, Error>) -> Void) {
-        if let url = URL(string: urlString) {
+        if let url = URL(string: ROOM_URL) {
             let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
                 if let error = error {
                     completion(.failure(error))
@@ -75,8 +77,10 @@ class ViewController: UIViewController {
             let decodedData = try JSONDecoder().decode(DemoData.self,
                                                        from: jsonData)
             
-            print("Title: ", decodedData.createdAt)
-            print("Description: ", decodedData.id)
+            let maxOccupancy = decodedData.maxOccupancy ?? 0
+            let id = decodedData.id ?? 0
+            print("Title: ", maxOccupancy)
+            print("Description: ", id)
             print("===================================")
         } catch {
             print("decode error")
