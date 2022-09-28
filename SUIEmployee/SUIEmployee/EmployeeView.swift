@@ -1,0 +1,97 @@
+//
+//  LoginView.swift
+//  SwiftUIHelloWorld
+//
+//  Created by MAC on 26/09/22.
+//
+
+import SwiftUI
+
+struct EmployeeView: View {
+    
+    @State var employeeName: String = ""
+    @State var employeeID: String = ""
+    @State var employeeMail: String = ""
+    @State var employeeImage: String = ""
+    
+    // @State var userName: String = ""
+    // @State var password: String = ""
+    @State var isLogingEnabled = false
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("Employee Name")
+
+                TextField("EmployeeName", text: $employeeName)
+                    .frame(height: 60.0)
+                    .textFieldStyle(.plain)
+                    .padding([.horizontal], 10)
+                    .overlay(RoundedRectangle(cornerRadius: 16.0).stroke(Color.gray))
+                    .padding(16.0).onChange(of: employeeName) { newValue in
+                        validateCredentials()
+                    }
+               
+                Text("Employee ID")
+                TextField("EmployeeName", text: $employeeMail)
+                    .frame(height: 60.0)
+                    .textFieldStyle(.plain)
+                    .padding([.horizontal], 10)
+                    .overlay(RoundedRectangle(cornerRadius: 16.0).stroke(Color.gray))
+                    .padding(16.0).onChange(of: employeeMail) { newValue in
+                        validateCredentials()
+                    }
+                
+                Text("Email")
+                TextField("EmployeeName", text: $employeeMail)
+                    .frame(height: 60.0)
+                    .textFieldStyle(.plain)
+                    .padding([.horizontal], 10)
+                    .overlay(RoundedRectangle(cornerRadius: 16.0).stroke(Color.gray))
+                    .padding(16.0).onChange(of: employeeMail) { newValue in
+                        validateCredentials()
+                    }
+                
+                Text("Employee Image")
+               // Image("fall-leaves")
+               //           .resizable()
+               //           .scaledToFit()
+                
+                /*
+                SecureField("Pasword", text: $password)
+                    .frame(height: 60.0)
+                    .textFieldStyle(.plain)
+                    .padding([.horizontal], 10)
+                    .overlay(RoundedRectangle(cornerRadius: 16.0).stroke(Color.gray))
+                    .padding(16.0).onChange(of: password) { newValue in
+                        validateCredentials()
+                    }
+                */
+                Button {
+                    
+                } label: {
+                    Text("Login")
+                }.disabled(!isLogingEnabled)
+                
+                Spacer()
+            }
+            
+            .navigationBarTitle("Login", displayMode: .inline)
+        }
+    }
+    
+    func validateCredentials() {
+      /*  if userName.count > 3 && password.count > 3 {
+            isLogingEnabled = true
+        }else {
+            isLogingEnabled = false
+
+        }*/
+    }
+}
+
+//struct LoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginView()
+//    }
+//}
